@@ -4,7 +4,7 @@ from Server import database
 import os
 import subprocess
 
-@app.route('/', methods=['GET'])
+@app.route('/api/fundraisers', methods=['GET'])
 def api():
     '''
     The api endpoint for all fundraisers

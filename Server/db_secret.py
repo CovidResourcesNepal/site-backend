@@ -1,2 +1,0 @@
-DATABASE_ADMIN = 'newYork'
-DATABASE_PWD = '8e*VMKR9AkvGtM'

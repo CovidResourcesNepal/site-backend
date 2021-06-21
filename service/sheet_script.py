@@ -33,11 +33,14 @@ def get_fundraisers_json():
     else:
         for i, row in enumerate(values):
             fundraiser = {
-                'name': row[0],
-                'platform': row[1].lower().replace(' ', ''),
+                'name': row[0].strip(),
+                'platform': row[1].lower().replace(' ', '').strip(),
                 'url': hyperlinks[i]['values'][0]['hyperlink'],
-                'stated_goal': row[2],
-                'category': row[6]
+                'stated_goal': row[2].strip(),
+                'fundraising_goal': int(row[3].replace(',', '')) if row[3] else None,
+                'fund_raised': int(row[4].replace(',', '')) if row[4] else None,
+                'currency': row[5].strip(),
+                'category': row[6].strip()
             }
             all_fundraisers.append(fundraiser)
     return all_fundraisers

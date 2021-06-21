@@ -1,8 +1,11 @@
 from Server import app
 from flask import request, jsonify, render_template
+from flask_cors import CORS
 from Server import database
 import os
 import subprocess
+
+CORS(app)
 
 @app.route('/api/fundraisers', methods=['GET'])
 def api():

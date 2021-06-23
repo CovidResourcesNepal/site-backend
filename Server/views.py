@@ -7,19 +7,11 @@ import subprocess
 
 CORS(app)
 
-@app.route('/api/fundraisers', methods=['GET'])
-def api():
+@app.route('/api/<type_>', methods=['GET'])
+def food(type_):
     '''
-    The api endpoint for all fundraisers
+    The api endpoint for all food resources
     '''
-    fundraisers = database.get_fundraisers()
-    print(fundraisers)
-    return jsonify(fundraisers), 200
-
-# @app.route("/pull")
-# def pull():
-#     os.chdir('/home/ubuntu/ny-exhibition')
-#     subprocess.run(['git', 'reset', '--hard', 'HEAD'])
-#     response = subprocess.check_output(['git','pull'])
-#     subprocess.run(['touch', 'client.wsgi'])
-#     return response
+    collection = database.get_collection(type_)
+    print(collection)
+    return jsonify(collection), 200
